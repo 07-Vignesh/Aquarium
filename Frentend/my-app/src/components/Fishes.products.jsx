@@ -191,8 +191,10 @@ const { isSignedIn } =  useAuth();
                    <button className="btn btn-accent my-2 mr-26" onClick={() => handleAddToCart(item)}>
        Add to Cart
      </button>)}
-                   <button className="btn btn-primary mt-2  " onClick={() => handleBuyNow(item)}>Buy Now</button>
-                   {isAdmin &&(
+
+              {!isAdmin&&(
+              <button className="btn btn-primary mt-2 " onClick={() => handleBuyNow(item)}>Buy Now</button>
+              ) }                   {isAdmin &&(
                        <button className="btn btn-error mt-2" onClick={() => handleDelete(item._id)}>Delete</button>
                        )}
      
@@ -201,6 +203,9 @@ const { isSignedIn } =  useAuth();
                  {( isSignedIn==false) &&(
                  <div className="card-actions justify-end">
                    <Link to="/login">
+                    <button className="btn btn-accent my-2 mr-28  " onClick={() => handleAddToCart(item)}>
+      Add to Cart
+    </button>
           
                    <button className="btn btn-primary">Buy Now</button>
               </Link>

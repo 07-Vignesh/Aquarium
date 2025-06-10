@@ -14,6 +14,7 @@ export default function AdminPage() {
 
   return (
     <Stack
+    
       direction={{ xs: 'column', md: 'row' }}
       spacing={1}
       sx={{ width: '100%' }}
