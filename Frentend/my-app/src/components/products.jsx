@@ -43,7 +43,7 @@ const handleAddToCart = async (item) => {
   };
 
   try {
-    await axios.post("http://localhost:5000/api/carts", { item: cartItem }, {
+    await axios.post("https://ap-backend-9neb.onrender.com/api/carts", { item: cartItem }, {
       headers: {
         Authorization: `Bearer ${user.sessionId}` // Clerk will handle this automatically if using session token
       }
@@ -68,7 +68,7 @@ const handleAddProductChange = (e) => {
 const handleAddProduct = async (e) => {
   e.preventDefault();
   try {
-    const response = await axios.post('http://localhost:5000/api/products', newProduct);
+    const response = await axios.post('https://ap-backend-9neb.onrender.com/api/products', newProduct);
     setItems(prev => [...prev, response.data]); // add new bird to list
     setAlertType('success');
     setAlertMessage('Product added successfully!');
@@ -88,7 +88,7 @@ const { user } = useUser();
 
 const handleDelete = async (id) => {
   try {
-    await axios.delete(`http://localhost:5000/api/products/${id}`);
+    await axios.delete(`https://ap-backend-9neb.onrender.com/api/products/${id}`);
     setItems(items.filter(item => item._id !== id)); // remove item from state
     setAlertType('success');
     setAlertMessage('Bird item deleted successfully!');
@@ -108,7 +108,7 @@ const { isSignedIn } =  useAuth();
  useEffect(() => {
   const fetchItems = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/products`, {
+      const res = await axios.get(`https://ap-backend-9neb.onrender.com/api/products`, {
         params: { search: searchQuery }
       });
       setItems(res.data);
@@ -144,7 +144,7 @@ const { isSignedIn } =  useAuth();
 
 
   try {
-  await axios.post('http://localhost:5000/api/orders', orderData);
+  await axios.post('https://ap-backend-9neb.onrender.com/api/orders', orderData);
   setAlertType('success');
   setAlertMessage('Order placed successfully!');
   setTimeout(() => setAlertMessage(''), 3000);

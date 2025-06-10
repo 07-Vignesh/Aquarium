@@ -7,7 +7,7 @@ const ImageComponent = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/items')
+    axios.get('https://ap-backend-9neb.onrender.com/api/items')
       .then(res => setItems(res.data))
       .catch(err => console.error('Failed to fetch items:', err));
   }, []);

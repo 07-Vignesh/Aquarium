@@ -8,7 +8,7 @@ const CartPage = () => {
 
   useEffect(() => {
     if (!user) return;
-    axios.get("http://localhost:5000/api/carts", {
+    axios.get("https://ap-backend-9neb.onrender.com/api/carts", {
       headers: {
         Authorization: `Bearer ${user.sessionId}`
       }
@@ -21,7 +21,7 @@ const CartPage = () => {
 
   const handleRemove = async (itemId) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/api/carts/${itemId}`, {
+      const res = await axios.delete(`https://ap-backend-9neb.onrender.com/api/carts/${itemId}`, {
         headers: {
           Authorization: `Bearer ${user.sessionId}`
         }

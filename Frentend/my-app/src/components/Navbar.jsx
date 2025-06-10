@@ -17,7 +17,7 @@ const Navbar = ({onSearch}) => {
   const [totall, setTotall] = useState(0);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/carts/total-items')
+    fetch('https://ap-backend-9neb.onrender.com/api/carts/total-items')
       .then(res => res.json())
       .then(data => {
         setTotall(data.totalItems);

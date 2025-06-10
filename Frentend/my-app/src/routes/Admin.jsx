@@ -13,7 +13,7 @@ const AdminPage = () => {
 
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/orders')
+    axios.get('https://ap-backend-9neb.onrender.com/api/orders')
       .then(res => setItems(res.data))
       .catch(err => console.error('Failed to fetch items:', err));
   }, []);
@@ -22,7 +22,7 @@ const AdminPage = () => {
   if (!window.confirm("Are you sure you want to delete this order?")) return;
 
   try {
-    await axios.delete(`http://localhost:5000/api/orders/${id}`);
+    await axios.delete(`https://ap-backend-9neb.onrender.com/api/orders/${id}`);
     setItems(items.filter(item => item._id !== id));
   } catch (err) {
     console.error('Failed to delete item:', err);
